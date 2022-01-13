@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: Blogary API
+  version: v1
+paths: 
+  /blogs:
+    get:
+      description: get blogs
+      parameters:
+      - name: date
+        description: filter by posted date
+        in: query
+        schema:
+          type: number
+      responses:
+        200:
+          description: blogs posted by date
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                      pattern: '^[0-9a-fA-F\-]{36}$'
+                    title:
+                      type: string
+                    category:
+                      type: string
+                    postInfo:
+                      type: object
+                      properties:
+                        author: 
+                          type: object
+                          properties:
+                            usernamename:
+                              type: string
+                        date:
+                          type: number
+                        comments:
+                          type: number
+                    imagePath:
+                      type: string
+                    postDetailUrl:
+                      type: string
+                    postContent:
+                      type: string
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                    comments:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          author:
+                            type: object
+                            properties:
+                              username:
+                                type: string
+                          date:
+                            type: number
+                          content:
+                            type: string
+    post:
+      description: create new blog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: 
+                  type: string
+                  nullable: true
+      responses:
+        '201':
+          description: successfully created a blog
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                
+        
+                        
+                      
+                
+            

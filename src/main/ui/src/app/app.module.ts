@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BlogpostModule } from './blogpost/blogpost.module';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HomeComponent,
     ContactUsComponent,
     AboutUsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BlogpostModule
   ],
   providers: [],
   bootstrap: [AppComponent]
